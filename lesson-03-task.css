@@ -24,7 +24,7 @@
    * 操作前：四张作品卡上下紧挨着，中间没有空隙。
    * 操作后：四张卡之间出现 30px 的间隙，看得出是四块独立的卡片了。
    * ======================================================== */
-  display: block;
+  display: grid;
 
   /* ============ TODO 02：桌面上一行放两张卡 ============
    * grid-template-columns 规定网格有几列、每列多宽。
@@ -155,7 +155,7 @@
  * ================================================ */
 @media (max-width: 640px) {
   .portfolio-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
@@ -206,6 +206,9 @@
  *         而且是在内容真的放不下时才变，不再依赖那个拍脑袋的 640px。
  * ======================================================== */
 
+.portfolio-list {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
 
 @media (prefers-reduced-motion: reduce) {
   /* 系统开了"减少动态效果"时不播放过渡。
